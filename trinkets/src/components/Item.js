@@ -37,12 +37,12 @@ function Item(props) {
                 // need an interpolated string because this Route is just
                 // "/item-list" - no dynamic properties attached on the end.
                 props.history.push("/item-list");
-                console.log("Past the push to the new URL");
-            });
-            .catch(err => {
-                console.log(err);
-            });
-        };
+                console.log("past push to new url");
+                })
+                .catch(err => {
+                    console.log(err);
+                });
+            };
 
         if (!props.items.length || !item) {
             return <h2>Loading item data...</h2>;
