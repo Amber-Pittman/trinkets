@@ -1,0 +1,33 @@
+import React from "react";
+//import { Link } from "react-router-dom";
+
+function ItemsList(props) {
+  function routeToItem(ev, item) {
+    ev.preventDefault();
+    props.history.push(`/item-list/${item.id}`);
+  }
+
+  return (
+    <div className="items-list-wrapper">
+      {props.items.map(item => (
+        <div
+          // When you pass something as a param, you have to build the
+          // onClick this way
+          onClick={ev => routeToItem(ev, item)}
+          className="item-card"
+          key={item.id}
+        >
+          <img
+            className="item-list-image"
+            src={item.imageUrl}
+            alt={item.name}
+          />
+          <p>{item.name}</p>
+          <p>${item.price}</p>
+        </div>
+      ))}
+    </div>
+  );
+}
+
+export default ItemsList;
